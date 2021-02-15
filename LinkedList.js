@@ -64,6 +64,11 @@ class SingleLinkedList {
 
 		return currentNode;
 	}
+	// Obtiene un array de valores y los mete en la lista
+	fromArray(values) {
+		values.forEach((value) => this.append(value));
+		return this;
+	}
 }
 
 let myList = new SingleLinkedList();
