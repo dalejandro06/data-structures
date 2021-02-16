@@ -3,8 +3,7 @@
 //   4       20 --> Incrementa
 // 2   8   17   170
 import Nodo from './MyNode';
-
-class Tree {
+export default class Tree {
 	constructor() {
 		// Primer nodo
 		this.root = null;
@@ -59,5 +58,3 @@ class Tree {
 		}
 	}
 }
-
-const tree = new Tree();

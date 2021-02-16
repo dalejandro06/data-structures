@@ -1,8 +1,13 @@
 // 1-- > 2-- > 3-- > 4-- > 5-- > null;
-import Nodo from './MyNode';
+import Nodo from './MyNode.mjs';
 
-class SingleLinkedList {
+export default class LinkedList {
 	constructor(value) {
+		if (!value) {
+			throw new TypeError(
+				'Constructor must be initialized with at least 1 value'
+			);
+		}
 		// obligamos a iniciar la linkedList con un valor que se le pase
 		this.head = {
 			value: value,
@@ -13,8 +18,15 @@ class SingleLinkedList {
 		// Por defecto es uno porque se obliga a que se inicie con un valor
 		this.length = 1;
 	}
+	// Añadir un nodo al final de la lista
 	append(value) {
 		const newNode = new Nodo(value);
+
+		if (!this.head) {
+			this.head = newNode;
+			this.tail = newNode;
+			return this;
+		}
 		// La cola siempre es null, como se puede ver arriba, por lo que si queremos agregar un nuevo nodo, tenemos que cambiar ese null por el nodo
 		this.tail.next = newNode;
 		// Ya no apuntamos al head, si no al último nodo de la lista
@@ -24,6 +36,7 @@ class SingleLinkedList {
 		// Nos devuelve toda la lista
 		return this;
 	}
+	// Añadir un nuevo nodo a la cabeza
 	prepend(value) {
 		const newNode = new Nodo(value);
 		// Como va a ser el primer nodo, necesitamos obtener el que es el primer nodo en la lista actual, y guardarlo en el next del que será el primer nuevo nodo
@@ -66,9 +79,19 @@ class SingleLinkedList {
 	}
 	// Obtiene un array de valores y los mete en la lista
 	fromArray(values) {
-		values.forEach((value) => this.append(value));
+		for (let i = 0; i < values.length; i++) {
+			this.append(values[i]);
+		}
+		// values.forEach((value) => this.append(value));
 		return this;
 	}
+	toArray() {
+		const nodes = [];
+		let currentNode = this.head;
+		while (currentNode) {
+			nodes.push(currentNode);
+			currentNode = currentNode.next;
+		}
+		return nodes;
+	}
 }
-
-let myList = new SingleLinkedList();

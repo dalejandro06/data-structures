@@ -1,7 +1,7 @@
 import Nodo from './MyNode';
 
 // El Stack va ligado como la LinkedList donde hay referencias al siguiente elemento
-class Stack {
+export default class Stack {
 	constructor() {
 		// El elemento que está arriba
 		this.top = null;
@@ -42,5 +42,3 @@ class Stack {
 		return currentTop;
 	}
 }
-
-const myStack = new Stack();

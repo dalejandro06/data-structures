@@ -1,4 +1,4 @@
-class HashTable {
+export default class HashTable {
 	constructor(size) {
 		this.data = new Array(size);
 	}
@@ -41,5 +41,3 @@ class HashTable {
 		return undefined;
 	}
 }
-// Le decimos que el hashtable tenga un espacio de 50 slots
-const myHashtable = new HashTable(50);

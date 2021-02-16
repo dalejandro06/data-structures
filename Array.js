@@ -1,11 +1,11 @@
-class MyArray {
+export default class MyArray {
 	constructor() {
 		this.length = 0;
 		// Save new elements
 		this.data = {};
 	}
 	get(index) {
-		// Search for the index inside the Object and returns it
+		// Search for index inside the Object and returns it
 		return this.data[index];
 	}
 	push(item) {
@@ -40,18 +40,3 @@ class MyArray {
 		this.length--;
 	}
 }
-
-const array = new MyArray();
-
-array.push('Diego');
-array.push('Alejandro');
-array.push('Rodriguez');
-array.push('Moreno');
-array.push('Andres');
-
-console.log('array ->', array);
-
-const deletedItem = array.delete(2);
-
-console.log('deletedItem ->', deletedItem);
-console.log('array ->', array);

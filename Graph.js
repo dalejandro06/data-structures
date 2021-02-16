@@ -7,7 +7,7 @@
 
 // Edge list
 // Esta es una lista de arrays que representa las conexiones del grafo de arriba
-const graph = [
+let graph = [
 	[2, 0],
 	[2, 1],
 	[2, 3],
@@ -21,11 +21,11 @@ const graph = [
 // El índice 1 conecta con el 2 y 3
 // El índice 2 conecta con el 0 3 y 1
 //              0     1         2       3
-const graph = [[2], [2, 3], [0, 3, 1], [1, 2]];
+const adjacentList = [[2], [2, 3], [0, 3, 1], [1, 2]];
 
 // HashTable
 // Casi lo mismo que la Adjacent List pero los índices están explícitos
-const graph = {
+const hashTable = {
 	0: [2],
 	1: [2, 3],
 	2: [0, 1, 3],
@@ -34,7 +34,7 @@ const graph = {
 
 // Adjacent Matrix
 // Es un array donde cada nodo tiene su propio array de 0 y 1, donde 1 es si conecta con el nodo en la posición del Array, y 0 si no conecta.
-const graph = [
+const adjacentMatrix = [
 	// Este es el nodo 0, tiene un 1 en la posición 2 porque conecta con el nodo 2 en el grafo de arriba
 	[0, 0, 1, 0],
 	// Este es el nodo 1, tiene un 1 en la posición 2  y 3 porque conecta con esos nodos.
@@ -45,14 +45,14 @@ const graph = [
 
 // Adjacent matrix pero en un objeto
 // El key es el nodo en el grafo, y el value son los nodos con los que se conecta si sale un 1 donde la posición del array sea la misma que el nodo
-const graph = {
+const adjacentMatrixObject = {
 	0: [0, 0, 1, 0],
 	1: [0, 0, 1, 1],
 	2: [1, 1, 0, 1],
 	3: [0, 1, 1, 0]
 };
 
-class Graph {
+export default class Graph {
 	constructor() {
 		// Se lleva la cuenta de los nodos que se van agregando
 		this.nodes = 0;

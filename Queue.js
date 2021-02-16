@@ -1,6 +1,5 @@
 import Nodo from './MyNode';
-
-class Queue {
+export default class Queue {
 	constructor() {
 		// El primer elemento que entró
 		this.first = null;
@@ -36,5 +35,3 @@ class Queue {
 		return firstNode;
 	}
 }
-
-const myQueue = new Queue();
