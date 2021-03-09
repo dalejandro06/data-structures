@@ -1,4 +1,4 @@
-export default class MyArray {
+class MyArray {
 	constructor() {
 		this.length = 0;
 		// Save new elements
@@ -38,5 +38,15 @@ export default class MyArray {
 		// arriba movimos todos los elementos una posición, y aquí borramos ese indice que sobra luego de remover el elemento
 		delete this.data[this.length - 1];
 		this.length--;
+	}
+	map(callback) {
+		const newArray = new MyArray();
+		for (let i = 0; i < this.length; i++) {
+			const match = callback(this.data[i]);
+			if (match) {
+				newArray.push(this.data[i]);
+			}
+		}
+		return newArray;
 	}
 }

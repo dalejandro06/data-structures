@@ -82,7 +82,6 @@ export default class LinkedList {
 		for (let i = 0; i < values.length; i++) {
 			this.append(values[i]);
 		}
-		// values.forEach((value) => this.append(value));
 		return this;
 	}
 	toArray() {
